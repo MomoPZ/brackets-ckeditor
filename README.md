@@ -5,14 +5,14 @@
 
 
  1. Place the ```brackets-ckeditor```-folder inside the [extension-folder](https://github.com/adobe/brackets/wiki/Extension-Location) or use Bracket's [Extension Manger](https://github.com/adobe/brackets/wiki/Brackets-Extensions) for installation
- 2. Download [CKeditor](http://ckeditor.com/download) and extract it into the ```brackets-ckeditor```-folder
+ 2. Download [CKeditor](http://ckeditor.com/download) and extract it into the ```brackets-ckeditor```-folder (don't rename folder containing CKEditor, name must be "ckeditor")
 
 ###Usage:
 
 In Brackets on the right, next to the Extension Manager, you will find now the button for CKEditor.
 
 **To paste/insert content:** 
-In Brackets put the cursor in the body of a HTML-file and press the CKEditor-button. CKEditor opens with an empty screen. Enter your content and press ```Paste```.
+In Brackets put the cursor where you want to paste content in the body of a HTML-file. Press the CKEditor-button. CKEditor opens with an empty screen. Enter your content and press ```Paste```.
 
 **To edit content:** 
 Select in Brackets the HTML you want to edit and press the CKEditor-button. Your content will open in Ckeditor. After you made your adjustements press ```Paste```. The selected HTML in Brackets will be replaced.
