@@ -1,5 +1,5 @@
 {
-    "name": "momo.ckeditor",
+    "name": "brackets-ckeditor",
     "title": "CKeditor for Brackets",
     "description": "Paste or edit html-content in Brackets with CKeditor. Notice: After installation you must download CKeditor and place it in the extension-folder!!!",
     "homepage": "https://github.com/MomoPZ/brackets-ckeditor/",
