@@ -25,4 +25,4 @@ Select in Brackets the HTML you want to edit and press the CKEditor-button. Your
 >Sometimes CKEditor strips code when it doesn't like it. That is not caused by the extension! 
 Of course you are free to configure CKEditor in the way you like it. You find the configuration of CKEditor in the file ```ckeditor.config.js``` in the extension folder.
 
-![Screenshot](https://github.com/MomoPZ/screenshots/blob/master/Brackets-CKEditor.png "Screenshot CKEditor in Brackets")
+![Screenshot](https://github.com/MomoPZ/screenshots/blob/master/Brackets-CKEditor.png?raw=true "Screenshot CKEditor in Brackets")
