@@ -12,7 +12,7 @@
 In Brackets on the right, next to the Extension Manager, you will find now the button for CKEditor.
 
 **To paste/insert content:** 
-In Brackets put the cursor where you want to paste content in the body of a HTML-file. Press the CKEditor-button. CKEditor opens with an empty screen. Enter your content and press ```Paste```.
+In Brackets put the cursor a HTML-file where you want to paste content. Press the CKEditor-button. CKEditor opens with an empty screen. Enter your content and press ```Paste```.
 
 **To edit content:** 
 Select in Brackets the HTML you want to edit and press the CKEditor-button. Your content will open in Ckeditor. After you made your adjustements press ```Paste```. The selected HTML in Brackets will be replaced.
