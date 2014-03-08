@@ -18,10 +18,9 @@ In Brackets put the cursor in the body of a HTML-file and press the CKEditor-but
 Select in Brackets the HTML you want to edit and press the CKEditor-button. Your content will open in Ckeditor. After you made your adjustements press ```Paste```. The selected HTML in Brackets will be replaced.
 
 
+>**Notice:**
+
+>CKEditor needs proper HTML with start- and end-tags. That's why the extension always selects complete code-blocks. I.e. if you only select ```<body ``` > in the editor the extension will select the complete body of your document. If your selection contains no tag at all you will get an empty CKEditor and entered content will be inserted.
 >
-**Notice:**
-
-CKEditor needs proper HTML with start- and end-tags. That's why the extension always selects complete code-blocks. I.e. if you only select ```<body ``` > in the editor the extension will select the complete body of your document. If your selection contains no tag at all you will get an empty CKEditor and entered content will be inserted.
-
-Sometimes CKEditor strips code when it doesn't like it. That is not caused by the extension! 
+>Sometimes CKEditor strips code when it doesn't like it. That is not caused by the extension! 
 Of course you are free to configure CKEditor in the way you like it. You find the configuration of CKEditor in the file ```ckeditor.config.js``` in the extension folder.
