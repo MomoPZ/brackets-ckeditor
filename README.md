@@ -1,5 +1,5 @@
 # Ckeditor for Brackets
-	Tested with Brackets Sprint36
+	Tested with Brackets Sprint36 and CKEditor 4.3.3 (Standard Package)
 
 ###Installation:
 
