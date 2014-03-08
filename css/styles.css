@@ -1,0 +1,14 @@
+.bracket-ckeditor {
+    display: inline-block;
+    background-image: url('img/ck-icon.svg');
+    background-size: 100%;
+}
+
+.ckdialog {
+	opacity : 1;
+	width: 70%;
+	padding:0;
+}
+.ckbox {
+	height: 100%;
+}
