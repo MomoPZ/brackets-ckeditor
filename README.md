@@ -20,7 +20,7 @@ Select in Brackets the HTML you want to edit and press the CKEditor-button. Your
 
 >**Notice:**
 
->CKEditor needs proper HTML with start- and end-tags. That's why the extension always tries to select complete code-blocks (i.e. if you only select ```<div  cla```ss="className"> in the editor the extension will select the complete div-container). If your selection does not contain any tag you will get an empty CKEditor and entered content will be inserted.
+>CKEditor needs proper HTML with start- and end-tags. That's why the extension always tries to select complete code-blocks (i.e. if you only select ```<div  cla```ss="className"> in the editor the extension will select the complete div-container). If your selection does not contain any valid tag you will get an empty CKEditor and entered content will be inserted.
 >
 >Sometimes CKEditor strips code it doesn't agree with. That is not caused by the extension! 
 Of course you are free to configure CKEditor in the way you like it. You can find the configuration of CKEditor in the file ```ckeditor.config.js``` in the extension folder.
