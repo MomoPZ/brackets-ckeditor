@@ -4,8 +4,9 @@
 ###Installation:
 
 
- 1. Place the ```brackets-ckeditor```-folder inside the [extension-folder](https://github.com/adobe/brackets/wiki/Extension-Location) or use Bracket's [Extension Manger](https://github.com/adobe/brackets/wiki/Brackets-Extensions) for installation (ignore the installation error and resume with step 2)
+ 1. Place the ```brackets-ckeditor```-folder inside the [extension-folder](https://github.com/adobe/brackets/wiki/Extension-Location) or use Bracket's [Extension Manger](https://github.com/adobe/brackets/wiki/Brackets-Extensions) for installation (ignore the installation error and continue with step 2)
  2. Download [CKeditor](http://ckeditor.com/download) and extract it into the ```brackets-ckeditor``` extension-folder (don't rename folder containing CKEditor, name must remain ```ckeditor```)
+ 3. Reload Brackets (F5)
 
 ###Usage:
 
