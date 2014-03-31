@@ -1,8 +1,7 @@
 /*global define, $, brackets, Mustache */
 define(function (require, exports, module) {
     "use strict";
-    var CodeMirror      = brackets.getModule("thirdparty/CodeMirror2/lib/CodeMirror"),
-        COMMAND_ID      = "momo.ckeditor",
+    var COMMAND_ID      = "momo.ckeditor",
         CommandManager  = brackets.getModule("command/CommandManager"),
         Dialogs         = brackets.getModule("widgets/Dialogs"),
         EditorManager   = brackets.getModule("editor/EditorManager"),
@@ -204,11 +203,13 @@ define(function (require, exports, module) {
 		});
 
         $ck_modal.find("#ck_paste").click( function () {
-			var data = CKEDITOR.instances["ckeditor1"].getData();
+			var data = CKEDITOR.instances["ckeditor1"].getData(),
+                dataLines = data.split("\n").length,
+                dataEndLine = range.start.line + dataLines;
 
 			hostEditor.document.replaceRange(data, { line: range.start.line, ch: 0 }, { line: range.end.line, ch: range.end.ch });
-            for (index = range.start.line; index <= range.end.line; index++) {
-                hostEditor.document.indentLine(index);
+            for (var index = range.start.line; index <= (dataEndLine); index++) {
+                hostEditor._codeMirror.indentLine(index);
             }
 			if (CKEDITOR.instances["ckeditor1"]) {
 				CKEDITOR.instances['ckeditor1'].destroy();
