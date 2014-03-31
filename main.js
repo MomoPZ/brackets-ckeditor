@@ -1,7 +1,8 @@
 /*global define, $, brackets, Mustache */
 define(function (require, exports, module) {
     "use strict";
-    var COMMAND_ID      = "momo.ckeditor",
+    var CodeMirror      = brackets.getModule("thirdparty/CodeMirror2/lib/CodeMirror"),
+        COMMAND_ID      = "momo.ckeditor",
         CommandManager  = brackets.getModule("command/CommandManager"),
         Dialogs         = brackets.getModule("widgets/Dialogs"),
         EditorManager   = brackets.getModule("editor/EditorManager"),
@@ -24,7 +25,6 @@ define(function (require, exports, module) {
      * returns an object with positions of starting and closing tags:
      *      { {line: startTagLine, ch: startTagPos}, {line: closingTagLine, ch: closingTagPos}  }
 	 */
-    
 	function _getMatchingEndTag(cm, startTagToken) {
 
 		var result = {},
@@ -50,7 +50,7 @@ define(function (require, exports, module) {
 		var result = {},
             l = range.start.line;
 		while (l <= range.end.line) {
-			var tok = _getFirstTagInLine (cm, l);
+			var tok = _getFirstTagInLine(cm, l);
 			if (tok.start) {
 				return { line: l, ch: tok.start };
 			}
@@ -72,7 +72,7 @@ define(function (require, exports, module) {
 		var result = {},
             l = range.start.line;
 		while (l <= range.end.line) {
-			var tok = _getFirstTagInLine (cm, l),
+			var tok = _getFirstTagInLine(cm, l),
                 tokEndTag = _getMatchingEndTag(cm, {line: l, ch: tok.start});
             
 			if (tokEndTag.end) {
@@ -103,9 +103,9 @@ define(function (require, exports, module) {
             last_c  = 0,
             tok     = _getTokenAtCursor(cm, {line : l, ch: c});
 
-		while ( c > last_c ) {
+		while (c > last_c) {
 			last_c = c;
-			if(tok.type == "tag") {
+			if (tok.type == "tag") {
 				return tok;
 			}
 			tok = _nextToken(cm, {line: l, ch: c});
@@ -124,7 +124,7 @@ define(function (require, exports, module) {
 	 */
 	function _getTokenAtCursor(cm, pos) {
 
-		return cm.getTokenAt( {line: pos.line, ch: pos.ch} );
+		return cm.getTokenAt({line: pos.line, ch: pos.ch});
 	}
     
     /**    
@@ -137,29 +137,9 @@ define(function (require, exports, module) {
 	 */
 	function _nextToken(cm, pos) {
 
-		return cm.getTokenAt( {line: pos.line, ch: pos.ch + 1} );
+		return cm.getTokenAt({line: pos.line, ch: pos.ch + 1});
 	}
-    
-    
-	/**    
-	 * @private    
-	 * adds indent to every line of content
-	 * @param {string} content     Edited content     
-	 * @param {string} indent     
-     *
-     * returns {string} content with indent
-	 */
-	function _addIndent(content, indent) {
 
-		var lines = content.split(/\r?\n/);
-		$.each(lines, function(i) {
-
-			lines[i] = indent + lines[i];
-		});
-		return lines.join("\n");
-	}
-	
-    
 	/**    
 	 * @private    
 	 * This stupid function makes an attempt to find the paths of css-files which are included in the html
@@ -190,8 +170,7 @@ define(function (require, exports, module) {
 		}
 		return cssLinks;
 	}
-	
-    
+
 	/**    
 	 * @private    
 	 * Loads the dialog with ckeditor an the content to edit    
@@ -227,8 +206,11 @@ define(function (require, exports, module) {
 
         $ck_modal.find("#ck_paste").click( function () {
 			var data = CKEDITOR.instances["ckeditor1"].getData();
-			    data = _addIndent(data, indent);
+
 			hostEditor.document.replaceRange(data, { line: range.start.line, ch: 0 }, { line: range.end.line, ch: range.end.ch });
+            for (index = range.start.line; index <= range.end.line; index++) {
+                hostEditor.document.indentLine(index);
+            }
 			if (CKEDITOR.instances["ckeditor1"]) {
 				CKEDITOR.instances['ckeditor1'].destroy();
 			}
@@ -237,7 +219,6 @@ define(function (require, exports, module) {
 
 	}
 
-    
     /**    
      * Kick-off - calculates the range to edit and init dialog with ckeditor... 
      */
@@ -280,10 +261,9 @@ define(function (require, exports, module) {
 		//remove none whitespace from indent
 		indent = indent.replace(/\S/g, " ");
 		
-		_loadCk( hostEditor, content, range, indent );
+		_loadCk(hostEditor, content, range, indent);
 
     }
-
 
 
 	ExtensionUtils.loadStyleSheet(module, "css/styles.css");
