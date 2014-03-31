@@ -1,12 +1,12 @@
 {
     "name": "brackets-ckeditor",
     "title": "CKeditor for Brackets",
-    "description": "Paste or edit HTML-content in Brackets with CKeditor. Notice: After installation you must download CKeditor and extract it into the extension-folder!!!",
+    "description": "Paste or edit HTML-content in Brackets with CKeditor. Notice: After installation (ignore the error!) you must download CKeditor and extract it into the extension-folder!!! ",
     "homepage": "https://github.com/MomoPZ/brackets-ckeditor/",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": " Momo 2014",
     "license": "MIT",
     "engines": {
-        "brackets": ">=0.36.0"
+        "brackets": ">=0.37.0"
     }
 }
