@@ -1,4 +1,5 @@
 /*global define, $, brackets, Mustache */
+/*jslint plusplus: true, vars: true, browser: true */
 define(function (require, exports, module) {
     "use strict";
     var COMMAND_ID      = "momo.ckeditor",
@@ -163,7 +164,7 @@ define(function (require, exports, module) {
 				links[i] = links[i].substr(0, links[i].lastIndexOf('"'));
 				var ext = links[i].substr(links[i].lastIndexOf(".") +1);
 				if (links[i].substr(0, 1).match(/[A-Z,a-z]/g) && ext == "css") {
-					cssLinks.push(docFolder + links[i])
+					cssLinks.push(docFolder + links[i]);
 				}
 			}
 		}
@@ -192,7 +193,7 @@ define(function (require, exports, module) {
 
 		//prepare the config for CKeditor
 		var cssFilesConfig = {};
-		cssFilesConfig.contentsCss = _extractCSSFiles(hostEditor)
+		cssFilesConfig.contentsCss = _extractCSSFiles(hostEditor);
         var config = $.extend({}, ckConfig, cssFilesConfig);
 
 		CKEDITOR.replace("ckeditor1", config);
