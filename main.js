@@ -1,7 +1,7 @@
-/*global define, $, brackets, Mustache */
-/*jslint plusplus: true, vars: true, browser: true */
 define(function (require, exports, module) {
     "use strict";
+    var CodeMirror = brackets.getModule("thirdparty/CodeMirror2/lib/codemirror");
+
     var COMMAND_ID      = "momo.ckeditor",
         CommandManager  = brackets.getModule("command/CommandManager"),
         Dialogs         = brackets.getModule("widgets/Dialogs"),
