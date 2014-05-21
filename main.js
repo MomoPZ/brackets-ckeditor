@@ -101,44 +101,24 @@ define(function (require, exports, module) {
 		var result  = {},
             c       = 1,
             last_c  = 0,
-            tok     = _getTokenAtCursor(cm, {line : l, ch: c});
-
+            tok     = cm.getTokenAt({line: l, ch: c});
 		while (c > last_c) {
 			last_c = c;
-			if (tok.type == "tag") {
-				return tok;
+			if (tok.type !== null) {
+				if (tok.type.substr(0,3) == "tag") {
+					if (tok.string == "</") {
+						return {};
+					}
+					return tok;
+				}
 			}
-			tok = _nextToken(cm, {line: l, ch: c});
+			//next token
+			tok = cm.getTokenAt({line: l, ch: c +1});
 			c = tok.end;
 		}
 		return result;
 	}
 
-    /**
-	 * @private
-	 * _getTokenAtCursor
-	 * @param {object} cm              Codemirror instance
-	 * @param {object} {line, pos} pos Cursor position
-     *
-     * returns {object} token with it's position {startpos, endpos}
-	 */
-	function _getTokenAtCursor(cm, pos) {
-
-		return cm.getTokenAt({line: pos.line, ch: pos.ch});
-	}
-
-    /**
-	 * @private
-	 * _nextToken
-	 * @param {object} cm              Codemirror instance
-	 * @param {object} {line, pos} pos Cursor position
-     *
-     * returns {object} token with it's position {startpos, endpos}
-	 */
-	function _nextToken(cm, pos) {
-
-		return cm.getTokenAt({line: pos.line, ch: pos.ch + 1});
-	}
 
 	/**
 	 * @private
@@ -208,7 +188,7 @@ define(function (require, exports, module) {
                 dataLines = data.split("\n").length,
                 dataEndLine = range.start.line + dataLines;
 
-			hostEditor.document.replaceRange(data, { line: range.start.line, ch: 0 }, { line: range.end.line, ch: range.end.ch });
+			hostEditor.document.replaceRange(data, { line: range.start.line, ch: range.start.ch }, { line: range.end.line, ch: range.end.ch });
             for (var index = range.start.line; index <= (dataEndLine); index++) {
                 hostEditor._codeMirror.indentLine(index);
             }
